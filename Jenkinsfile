@@ -5,11 +5,9 @@ pipeline{
     stages {
         stage{"Build TADS"} {
             steps {
-                sh '''
-                 docker --version
-                 docker-compose -v
-                 java -version
-                '''
+                sh 'docker --version'
+                sh 'docker-compose -v'
+                sh 'java -version'
             }
         }
     }
