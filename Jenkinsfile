@@ -1,14 +1,15 @@
 pipeline{
 
-    agent any
+    agent any {
 
     stages {
-        stage{"Build TADS"} {
+        stage('Build TADS') {
             steps {
                 sh 'docker --version'
                 sh 'docker-compose -v'
                 sh 'java -version'
             }
         }
+    }
     }
 }
