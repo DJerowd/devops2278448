@@ -1,6 +1,5 @@
-pipeline{
-
-    agent any {
+pipeline {
+    agent any
 
     stages {
         stage('Build TADS') {
@@ -10,6 +9,5 @@ pipeline{
                 sh 'java -version'
             }
         }
-    }
     }
 }
