@@ -3,7 +3,7 @@ pipeline{
     agent any
 
     stages {
-        stage('Build TADS') {
+        stage('npm Install') {
             steps {
                 
                 sh '''
@@ -11,21 +11,21 @@ pipeline{
                 '''
             }
         }
-        stage('Test NPM') {
+        stage('npm Test') {
             steps {
                 sh '''
                     npm test
                 '''
             }
         }
-        stage('Construindo Docker') {
+        stage('Docker build') {
             steps {
                 sh '''
                     docker build .
                 '''
             }
         }
-        stage('Compose Docker') {
+        stage('Docker Compose') {
             steps {
                 sh '''
                     docker compose up
