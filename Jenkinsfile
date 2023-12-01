@@ -3,8 +3,9 @@ pipeline{
     agent any
 
     stages {
-        stage('Install NPM') {
+        stage('Build TADS') {
             steps {
+                env.PATH = "${tool 'Nodejs'}/bin:${env.PATH}"
                 sh '''
                         npm install
                 '''
