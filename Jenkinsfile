@@ -1,14 +1,34 @@
-pipeline {
+pipeline{
+
     agent any
-    tools {
-        Nodejs '21.3.0'
-    }
 
     stages {
-        stage('Build TADS') {
+        stage('Install NPM') {
             steps {
-                sh 'npm install'
-                sh 'npm test'
+                sh '''
+                        npm install
+                '''
+            }
+        }
+        stage('Test NPM') {
+            steps {
+                sh '''
+                    npm test
+                '''
+            }
+        }
+        stage('Construindo Docker') {
+            steps {
+                sh '''
+                    docker build .
+                '''
+            }
+        }
+        stage('Compose Docker') {
+            steps {
+                sh '''
+                    docker compose up
+                '''
             }
         }
     }
