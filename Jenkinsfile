@@ -3,7 +3,6 @@ pipeline{
     agent any
     tools {
         nodejs 'Nodejs'
-        docker 'Docker'
     }
 
     stages {
@@ -25,14 +24,14 @@ pipeline{
         stage('Docker build') {
             steps {
                 sh '''
-                    docker build .
+                    docker build 
                 '''
             }
         }
         stage('Docker Compose') {
             steps {
                 sh '''
-                    docker compose up
+                    docker-compose up
                 '''
             }
         }
